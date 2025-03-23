@@ -24,6 +24,13 @@ const userSchema = new mongoose.Schema({
         select: false, // ensures that password is not included in the data that will be retrieved when queried
         trim: true,
     },
+    confirmPassword: {
+        type: String,
+        //required:[ true, 'Password is required'],
+        minlength: [8, 'Password must be at least 8 characters long'],
+        select: false, // ensures that password is not included in the data that will be retrieved when queried
+        trim: true,
+    },
     // region: {
     //     type: String,
     //     select: false
@@ -32,10 +39,15 @@ const userSchema = new mongoose.Schema({
         type: String,
         select: false
     },
-    school: {
+    forgotPasswordCode: {
         type: String,
-        select: false
+        select: false,
     },
+    forgotPasswordCodeValidation: {
+        type: Number,
+        select: false
+    }
+    
     
 }, {
     timestamps: true
